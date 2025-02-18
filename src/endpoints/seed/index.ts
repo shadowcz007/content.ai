@@ -146,6 +146,7 @@ export const seed = async ({
       data: {
         title: '创新设计',
         slug: 'design',
+        slugLock: true,
         breadcrumbs: [
           {
             label: '创新设计',
@@ -160,6 +161,7 @@ export const seed = async ({
       data: {
         title: '智能硬件',
         slug: 'hardware',
+        slugLock: true,
         breadcrumbs: [
           {
             label: '智能硬件',
@@ -174,6 +176,7 @@ export const seed = async ({
       data: {
         title: '解决方案',
         slug: 'solutions',
+        slugLock: true,
         breadcrumbs: [
           {
             label: '解决方案',

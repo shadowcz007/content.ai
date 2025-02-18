@@ -11,7 +11,7 @@ export const post3: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
     slug: 'smart-hardware-future-trends',
     _status: 'published',
     authors: [author],
-    category: category.id,
+    categories: [category.id],
     content: {
       root: {
         type: 'root',

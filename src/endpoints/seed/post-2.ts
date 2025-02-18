@@ -10,7 +10,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
   return {
     slug: 'design-innovation',
     _status: 'published',
-    category: category.id,
+    categories: [category.id],
     authors: [author],
     content: {
       root: {

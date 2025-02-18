@@ -18,7 +18,7 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
   slugLock: true,
   _status: 'published',
   title: 'AI驱动的产品创新',
-  category: category.id,
+  categories: [category.id],
   authors: [author],
   content: {
     root: {
