@@ -5,10 +5,12 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
   heroImage,
   blockImage,
   author,
+  category,
 }) => {
   return {
-    slug: 'global-gaze',
+    slug: 'design-innovation',
     _status: 'published',
+    category: category.id,
     authors: [author],
     content: {
       root: {
@@ -23,7 +25,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Explore the untold and overlooked. A magnified view into the corners of the world, where every story deserves its spotlight.',
+                text: '探索设计创新的无限可能。深入了解如何通过创新设计改变用户体验，塑造未来生活方式。',
                 version: 1,
               },
             ],
@@ -114,7 +116,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'The Power of Resilience: Stories of Recovery and Hope',
+                text: '设计思维：从理念到实践的创新之路',
                 version: 1,
               },
             ],
@@ -133,7 +135,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: "Throughout history, regions across the globe have faced the devastating impact of natural disasters, the turbulence of political unrest, and the challenging ripples of economic downturns. In these moments of profound crisis, an often-underestimated force emerges: the indomitable resilience of the human spirit. These aren't just tales of mere survival, but stories of communities forging bonds, uniting with a collective purpose, and demonstrating an innate ability to overcome.",
+                text: '在当今快速发展的数字时代，设计不仅仅是关于美学，更是解决问题的关键工具。从用户体验设计到产品创新，设计思维正在重塑我们与技术和环境的互动方式。通过深入理解用户需求，运用创新方法论，设计师们正在创造出更智能、更人性化的解决方案。',
                 version: 1,
               },
             ],
@@ -162,7 +164,7 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'From neighbors forming makeshift rescue teams during floods to entire cities rallying to rebuild after economic collapse, the essence of humanity is most evident in these acts of solidarity. As we delve into these narratives, we witness the transformative power of community spirit, where adversity becomes a catalyst for growth, unity, and a brighter, rebuilt future.',
+                text: '从可持续设计到交互体验优化，创新设计正在各个领域发挥着重要作用。通过整合最新技术与人文关怀，设计师们不断突破传统界限，为用户创造更美好的生活体验。这种创新精神正推动着设计行业向更广阔的未来发展。',
                 version: 1,
               },
             ],
@@ -222,11 +224,11 @@ export const post2: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
     heroImage: heroImage.id,
     meta: {
       description:
-        'Explore the untold and overlooked. A magnified view into the corners of the world, where every story deserves its spotlight.',
+        '探索设计创新的无限可能。深入了解如何通过创新设计改变用户体验，塑造未来生活方式。',
       image: heroImage.id,
-      title: 'Global Gaze: Beyond the Headlines',
+      title: '创新设计：塑造未来体验',
     },
     relatedPosts: [], // this is populated by the seed script
-    title: 'Global Gaze: Beyond the Headlines',
+    title: '创新设计：塑造未来体验',
   }
 }

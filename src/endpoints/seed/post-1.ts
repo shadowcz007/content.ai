@@ -1,20 +1,24 @@
-import type { Media, User } from '@/payload-types'
+import type { Media, User, Category } from '@/payload-types'
 import { RequiredDataFromCollectionSlug } from 'payload'
 
 export type PostArgs = {
   heroImage: Media
   blockImage: Media
   author: User
+  category: Category
 }
 
 export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> = ({
   heroImage,
   blockImage,
   author,
+  category,
 }) => ({
   slug: 'ai-innovation',
   _status: 'published',
   title: 'AI驱动的产品创新',
+  category: category.id,
+  authors: [author],
   content: {
     root: {
       type: 'root',

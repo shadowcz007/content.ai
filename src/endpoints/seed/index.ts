@@ -178,32 +178,6 @@ export const seed = async ({
         ],
       },
     }),
-
-    payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Software',
-        breadcrumbs: [
-          {
-            label: 'Software',
-            url: '/software',
-          },
-        ],
-      },
-    }),
-
-    payload.create({
-      collection: 'categories',
-      data: {
-        title: 'Engineering',
-        breadcrumbs: [
-          {
-            label: 'Engineering',
-            url: '/engineering',
-          },
-        ],
-      },
-    }),
   ])
 
   let demoAuthorID: number | string = demoAuthor.id
@@ -231,7 +205,12 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post1({ heroImage: image1Doc, blockImage: image2Doc, author: demoAuthor }),
+    data: post1({
+      heroImage: image1Doc,
+      blockImage: image2Doc,
+      author: demoAuthor,
+      category: aiCategory,
+    }),
   })
 
   const post2Doc = await payload.create({
@@ -240,7 +219,12 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post2({ heroImage: image2Doc, blockImage: image3Doc, author: demoAuthor }),
+    data: post2({
+      heroImage: image2Doc,
+      blockImage: image3Doc,
+      author: demoAuthor,
+      category: designCategory,
+    }),
   })
 
   const post3Doc = await payload.create({
@@ -249,7 +233,12 @@ export const seed = async ({
     context: {
       disableRevalidate: true,
     },
-    data: post3({ heroImage: image3Doc, blockImage: image1Doc, author: demoAuthor }),
+    data: post3({
+      heroImage: image3Doc,
+      blockImage: image1Doc,
+      author: demoAuthor,
+      category: hardwareCategory,
+    }),
   })
 
   // update each post with related posts
