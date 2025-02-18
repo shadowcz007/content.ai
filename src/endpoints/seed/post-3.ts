@@ -17,68 +17,6 @@ export const post3: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
         type: 'root',
         children: [
           {
-            type: 'block',
-            fields: {
-              blockName: 'Disclaimer',
-              blockType: 'banner',
-              content: {
-                root: {
-                  type: 'root',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        {
-                          type: 'text',
-                          detail: 0,
-                          format: 1,
-                          mode: 'normal',
-                          style: '',
-                          text: '声明: ',
-                          version: 1,
-                        },
-                        {
-                          type: 'text',
-                          detail: 0,
-                          format: 0,
-                          mode: 'normal',
-                          style: '',
-                          text: '本内容仅用于演示目的。要编辑此文章，请',
-                          version: 1,
-                        },
-                        {
-                          type: 'link',
-                          children: [
-                            {
-                              type: 'text',
-                              detail: 0,
-                              format: 0,
-                              mode: 'normal',
-                              style: '',
-                              text: '访问管理后台。',
-                              version: 1,
-                            },
-                          ],
-                          direction: 'ltr',
-                          fields: {
-                            linkType: 'custom',
-                            newTab: true,
-                            url: '/admin',
-                          },
-                          format: '',
-                          indent: 0,
-                          version: 3,
-                        },
-                      ],
-                    },
-                  ],
-                },
-              },
-              style: 'info',
-            },
-            version: 1,
-          },
-          {
             type: 'heading',
             children: [
               {
@@ -182,7 +120,7 @@ export const post3: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: "The stock market, often visualized as a bustling arena of numbers and ticker tapes, is as much about human behavior as it is about economics. It's a place where optimism, represented by the bullish rally, meets the caution of bearish downturns, with each vying to dictate the market's direction. But between these two extremes lies an uncertain middle ground, a zone populated by traders and investors who constantly weigh hope against fear. Successful navigation requires more than just financial acumen; it demands an understanding of collective sentiments and the ability to predict not just market movements, but also the reactions of other market participants. In this intricate dance of numbers and nerves, the most astute players are those who master both the hard data and the soft nuances of human behavior.",
+                text: '股市不仅仅是关于数字和行情，更多的是关于人的行为。在这个领域，乐观主义者（多头）与谨慎派（空头）相互博弈，共同影响着市场走向。在这两个极端之间，存在着一个充满不确定性的中间地带，交易者和投资者在这里不断权衡希望与恐惧。成功的交易不仅需要财务专业知识，还需要理解群体情绪，预测市场走向及其他参与者的反应。在这个数字与人性交织的复杂舞台上，最敏锐的参与者往往是那些既掌握硬数据又能把握人性微妙之处的人。',
                 version: 1,
               },
             ],
@@ -210,7 +148,7 @@ export const post3: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
                           format: 0,
                           mode: 'normal',
                           style: '',
-                          text: "This content above is completely dynamic using custom layout building blocks configured in the CMS. This can be anything you'd like from rich text and images, to highly designed, complex components.",
+                          text: '以上内容完全基于 CMS 中配置的自定义布局构建块实现动态展示。可以是任何您想要的内容，从富文本和图片到高度设计的复杂组件。',
                           version: 1,
                         },
                       ],
