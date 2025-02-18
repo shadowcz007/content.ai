@@ -131,6 +131,7 @@ export const seed = async ({
       collection: 'categories',
       data: {
         title: '人工智能',
+        slug: 'ai',
         breadcrumbs: [
           {
             label: '人工智能',
@@ -144,6 +145,7 @@ export const seed = async ({
       collection: 'categories',
       data: {
         title: '创新设计',
+        slug: 'design',
         breadcrumbs: [
           {
             label: '创新设计',
@@ -157,6 +159,7 @@ export const seed = async ({
       collection: 'categories',
       data: {
         title: '智能硬件',
+        slug: 'hardware',
         breadcrumbs: [
           {
             label: '智能硬件',
@@ -170,6 +173,7 @@ export const seed = async ({
       collection: 'categories',
       data: {
         title: '解决方案',
+        slug: 'solutions',
         breadcrumbs: [
           {
             label: '解决方案',

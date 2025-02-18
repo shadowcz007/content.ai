@@ -15,6 +15,7 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
   category,
 }) => ({
   slug: 'ai-innovation',
+  slugLock: true,
   _status: 'published',
   title: 'AI驱动的产品创新',
   category: category.id,
@@ -72,8 +73,10 @@ export const post1: (args: PostArgs) => RequiredDataFromCollectionSlug<'posts'> 
       version: 1,
     },
   },
+  heroImage: heroImage.id,
   meta: {
     title: 'AI驱动的产品创新 | Content.AI',
     description: '探索如何利用人工智能技术推动产品创新,打造智能解决方案',
+    image: heroImage.id,
   },
 })

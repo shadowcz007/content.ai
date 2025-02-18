@@ -9,45 +9,40 @@ type Overrides = {
 
 type Slug = (fieldToUse?: string, overrides?: Overrides) => [TextField, CheckboxField]
 
-export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
-  const { slugOverrides, checkboxOverrides } = overrides
-
-  const checkBoxField: CheckboxField = {
-    name: 'slugLock',
-    type: 'checkbox',
-    defaultValue: true,
-    admin: {
-      hidden: true,
-      position: 'sidebar',
-    },
-    ...checkboxOverrides,
-  }
-
-  // @ts-expect-error - ts mismatch Partial<TextField> with TextField
-  const slugField: TextField = {
+export const slugField: any = () => [
+  {
     name: 'slug',
     type: 'text',
-    index: true,
-    label: 'Slug',
-    ...(slugOverrides || {}),
-    hooks: {
-      // Kept this in for hook or API based updates
-      beforeValidate: [formatSlugHook(fieldToUse)],
-    },
+    required: true,
     admin: {
       position: 'sidebar',
-      ...(slugOverrides?.admin || {}),
-      components: {
-        Field: {
-          path: '@/fields/slug/SlugComponent#SlugComponent',
-          clientProps: {
-            fieldToUse,
-            checkboxFieldPath: checkBoxField.name,
-          },
-        },
-      },
     },
-  }
+    hooks: {
+      beforeValidate: [
+        ({
+          value,
+          originalDoc,
+          data,
+        }: {
+          value: string
+          originalDoc: Record<string, any>
+          data: Record<string, any>
+        }) => {
+          if (data?.slugLock || originalDoc?.slugLock) {
+            return data?.slug || originalDoc?.slug || value
+          }
 
-  return [slugField, checkBoxField]
-}
+          return value
+        },
+      ],
+    },
+  },
+  {
+    name: 'slugLock',
+    type: 'checkbox',
+    admin: {
+      position: 'sidebar',
+      description: '锁定 slug 防止自动生成',
+    },
+  },
+]
