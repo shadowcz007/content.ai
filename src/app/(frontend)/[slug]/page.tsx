@@ -12,6 +12,9 @@ import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { FloatingButton } from '@/components/FloatingButton'
+import { FloatingContact } from '@/components/FloatingContact'
+import { getCachedGlobal } from '@/utilities/getGlobals'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -48,8 +51,10 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { slug = 'home' } = await paramsPromise
   const url = '/' + slug
 
-  let page: RequiredDataFromCollectionSlug<'pages'> | null
+  // 获取联系方式配置
+  const contactData: any = await getCachedGlobal('contact', 1)()
 
+  let page: RequiredDataFromCollectionSlug<'pages'> | null
   page = await queryPageBySlug({
     slug,
   })
@@ -66,7 +71,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pt-16 pb-24">
+    <article className="pt-16 pb-24 relative">
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
@@ -75,6 +80,8 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
+
+      {/* <FloatingButton /> */}
     </article>
   )
 }

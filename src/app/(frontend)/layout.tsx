@@ -12,12 +12,16 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
+import { FloatingContact } from '@/components/FloatingContact'
+import { getCachedGlobal } from '@/utilities/getGlobals'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
+  // 获取联系方式配置
+  const contactData: any = await getCachedGlobal('contact', 1)()
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
@@ -37,6 +41,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Header />
           {children}
           <Footer />
+          <FloatingContact
+            contactInfo={contactData?.contactInfo || []}
+            enabled={contactData?.enableFloatingContact}
+          />
         </Providers>
       </body>
     </html>

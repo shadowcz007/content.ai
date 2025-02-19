@@ -1,6 +1,6 @@
 // storage-adapter-import-placeholder
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
-
+import { Contact } from './Contact/config'
 import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
@@ -68,7 +68,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, Contact],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

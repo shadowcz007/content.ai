@@ -14,6 +14,7 @@ import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { FloatingButton } from '@/components/FloatingButton'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -50,7 +51,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16">
+    <article className="pt-16 pb-16 relative">
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -71,6 +72,7 @@ export default async function Post({ params: paramsPromise }: Args) {
           )}
         </div>
       </div>
+      {/* <FloatingButton /> */}
     </article>
   )
 }
