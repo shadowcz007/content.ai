@@ -9,6 +9,7 @@ import { imageHero1 } from './image-hero-1'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { solutions } from './solutions-page'
 
 const collections: CollectionSlug[] = [
   'categories',
@@ -45,9 +46,7 @@ export const seed = async ({
     globals.map((global) =>
       payload.updateGlobal({
         slug: global,
-        data: {
-          navItems: [],
-        },
+        data: {},
         depth: 0,
         context: {
           disableRevalidate: true,
@@ -287,7 +286,7 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding pages...`)
 
-  const [homePage, contactPage] = await Promise.all([
+  const [homePage, contactPage, solutionsPage] = await Promise.all([
     payload.create({
       collection: 'pages',
       depth: 0,
@@ -297,6 +296,11 @@ export const seed = async ({
       collection: 'pages',
       depth: 0,
       data: contactPageData({ contactForm: contactForm }),
+    }),
+    payload.create({
+      collection: 'pages',
+      depth: 0,
+      data: solutions({ heroImage: imageHomeDoc }),
     }),
   ])
 
@@ -315,6 +319,16 @@ export const seed = async ({
                 reference: {
                   relationTo: 'pages',
                   value: homePage.id,
+                },
+              },
+            },
+            {
+              link: {
+                type: 'reference',
+                label: '解决方案',
+                reference: {
+                  relationTo: 'pages',
+                  value: solutionsPage.id,
                 },
               },
             },
