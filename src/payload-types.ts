@@ -191,7 +191,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | FormCardBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -737,6 +737,25 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormCardBlock".
+ */
+export interface FormCardBlock {
+  enabled?: boolean | null;
+  title: string;
+  cards?:
+    | {
+        title: string;
+        image?: (number | null) | Media;
+        form: number | Form;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'formCard';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1025,6 +1044,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        formCard?: T | FormCardBlockSelect<T>;
       };
   meta?:
     | T
@@ -1121,6 +1141,24 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormCardBlock_select".
+ */
+export interface FormCardBlockSelect<T extends boolean = true> {
+  enabled?: T;
+  title?: T;
+  cards?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        form?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
