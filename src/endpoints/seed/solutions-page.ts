@@ -14,6 +14,7 @@ export const solutions: (args: SolutionsPageArgs) => RequiredDataFromCollectionS
   _status: 'published',
   hero: {
     type: 'highImpact',
+    media: heroImage.id,
     richText: {
       root: {
         type: 'root',
@@ -31,7 +32,28 @@ export const solutions: (args: SolutionsPageArgs) => RequiredDataFromCollectionS
       },
     },
   },
-  layout: [],
+  layout: [
+    {
+      blockType: 'content',
+      blockName: '解决方案介绍',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            {
+              type: 'paragraph',
+              children: [
+                {
+                  type: 'text',
+                  text: '我们提供全方位的AI解决方案',
+                },
+              ],
+            },
+          ],
+        },
+      },
+    },
+  ],
   content: {
     root: {
       type: 'root',
